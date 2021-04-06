@@ -8,12 +8,12 @@
 import UIKit
 
 class LoginButton: UIButton {
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         tintColor = UIColor.white
         backgroundColor = UIColor.buttonBackground
     }
-    
+
 }

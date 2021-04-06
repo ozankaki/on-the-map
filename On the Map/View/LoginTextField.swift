@@ -8,12 +8,12 @@
 import UIKit
 
 class LoginTextField: UITextField {
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTextField()
     }
-    
+
     func setupTextField() {
         backgroundColor = UIColor.transparentWhite
         textColor = UIColor.buttonBackground

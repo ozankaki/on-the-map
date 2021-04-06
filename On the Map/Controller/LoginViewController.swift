@@ -8,10 +8,10 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-   
+
     @IBOutlet weak var usernameTextField: LoginTextField!
     @IBOutlet weak var passwordTextField: LoginTextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,4 +21,3 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "completeLogin", sender: nil)
     }
 }
-
