@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBE-IN-WnI" customClass="LoginButton" customModule="On_the_Map" customModuleProvider="target">
-                                <rect key="frame" x="20.5" y="537.5" width="373" height="40"/>
+                                <rect key="frame" x="20.5" y="519" width="373" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iSm-vO-ctB"/>
                                 </constraints>
@@ -50,12 +50,6 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUm-Qi-n77" userLabel="Sign up">
-                                <rect key="frame" x="20.5" y="587.5" width="373" height="24"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOI-5W-wwi" customClass="FacebookButton" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="20.5" y="795" width="373" height="50"/>
                                 <constraints>
@@ -73,25 +67,32 @@
                                     <constraint firstAttribute="width" constant="150" id="gNk-7l-qcc"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-C2-PzY" userLabel="Signup">
+                                <rect key="frame" x="20.5" y="569" width="373" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Don't have an acoount? Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="PrimaryLight"/>
                         <constraints>
                             <constraint firstItem="JBE-IN-WnI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="9FE-XP-3lI"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="ARd-NT-tWp"/>
-                            <constraint firstItem="jUm-Qi-n77" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="DR6-9J-bPy"/>
                             <constraint firstItem="tha-5r-Ybq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Des-XV-PKY"/>
                             <constraint firstItem="JBE-IN-WnI" firstAttribute="top" secondItem="R3f-lO-ETY" secondAttribute="bottom" constant="10" id="Gh6-Rm-ug9"/>
-                            <constraint firstItem="jUm-Qi-n77" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="10" id="KzQ-55-qHe"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.98" id="Ncc-sn-Ot4"/>
+                            <constraint firstItem="xOI-5W-wwi" firstAttribute="top" secondItem="jtI-C2-PzY" secondAttribute="bottom" multiplier="1.3" constant="8" symbolic="YES" id="Ohd-mx-yWD"/>
+                            <constraint firstItem="jtI-C2-PzY" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="10" id="R5f-e8-pNK"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RPS-lh-ujj"/>
+                            <constraint firstItem="jtI-C2-PzY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uoi-0M-Hl3"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="top" secondItem="tha-5r-Ybq" secondAttribute="bottom" constant="20" id="VmS-pQ-6ND"/>
-                            <constraint firstItem="xOI-5W-wwi" firstAttribute="top" secondItem="jUm-Qi-n77" secondAttribute="bottom" multiplier="1.3" id="Yos-Ar-ARH"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bKs-EQ-O4i"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c3h-J0-sOT"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="top" secondItem="VFX-ND-0zX" secondAttribute="bottom" constant="10" id="cdc-Mw-SJr"/>
                             <constraint firstItem="fez-Cs-jg5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="koO-j1-mxK"/>
-                            <constraint firstItem="jUm-Qi-n77" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nlG-da-pbN"/>
+                            <constraint firstItem="jtI-C2-PzY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="mMX-mX-nep"/>
                             <constraint firstItem="fez-Cs-jg5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qyY-eQ-3Py"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="tHy-6d-Me4"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="wS3-dn-CkB"/>
