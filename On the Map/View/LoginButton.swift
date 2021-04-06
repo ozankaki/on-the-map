@@ -13,7 +13,7 @@ class LoginButton: UIButton {
         super.awakeFromNib()
         
         tintColor = UIColor.white
-        backgroundColor = UIColor.button
+        backgroundColor = UIColor.buttonBackground
     }
     
 }

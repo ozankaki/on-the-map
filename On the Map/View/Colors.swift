@@ -8,9 +8,8 @@
 import UIKit
 
 extension UIColor {
-    static let primaryDark = UIColor(named: "PrimaryDark")!
-    static let primaryLight = UIColor(named: "PrimaryLight")!
-    static let button = UIColor(named: "Button")!
+    static let background = UIColor(named: "Background")!
+    static let buttonBackground = UIColor(named: "ButtonBackground")!
     static let facebook = UIColor(named: "Facebook")!
     static let transparentWhite = UIColor(white: 1, alpha: 0.3)
 }

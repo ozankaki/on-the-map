@@ -9,11 +9,6 @@ import UIKit
 
 class LoginTextField: UITextField {
     
-//    init() {
-//        super.init(frame: CGRect.zero)
-//        setupTextField()
-//    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupTextField()
@@ -21,7 +16,7 @@ class LoginTextField: UITextField {
     
     func setupTextField() {
         backgroundColor = UIColor.transparentWhite
-        textColor = UIColor.button
+        textColor = UIColor.buttonBackground
         frame.size.height = 50
     }
 }
