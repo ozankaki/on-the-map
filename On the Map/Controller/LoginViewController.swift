@@ -52,8 +52,8 @@ class LoginViewController: UIViewController {
         if success {
             performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
-            // TODO: show error
-            print("\(error!)")
+            showAlert(title: Constants.failedLogin,
+                      message: error?.localizedDescription ?? Constants.invalidCredentials)
         }
     }
 }

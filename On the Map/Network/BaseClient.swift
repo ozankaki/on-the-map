@@ -34,19 +34,51 @@ class BaseClient {
                 return
             }
             let decoder = JSONDecoder()
+            let newData = trimUdacityResponse(data)
             do {
-                let range = 5..<data.count
-                let newData = data.subdata(in: range)
                 let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
                     completion(responseObject, nil)
                 }
             } catch {
-                DispatchQueue.main.async {
-                    completion(nil, error)
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    DispatchQueue.main.async {
+                        completion(nil, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
                 }
+            }
+        }
+        task.resume()
+    }
+    
+    class func trimUdacityResponse(_ data: Data) -> Data {
+        let range = 5..<data.count
+        let newData = data.subdata(in: range)
+        return newData
+    }
+
+//    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            guard let data = data else {
+//                DispatchQueue.main.async {
+//                    completion(nil, error)
+//                }
+//                return
+//            }
+//            let decoder = JSONDecoder()
+//            do {
+//                let responseObject = try decoder.decode(ResponseType.self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(responseObject, nil)
+//                }
+//            } catch {
 //                do {
-//                    let errorResponse = try decoder.decode(ResponseType.Type, from: data) as Error
+//                    let errorResponse = try decoder.decode(ResponseType, from: data) as Error
 //                    DispatchQueue.main.async {
 //                        completion(nil, errorResponse)
 //                    }
@@ -55,9 +87,10 @@ class BaseClient {
 //                        completion(nil, error)
 //                    }
 //                }
-            }
-        }
-        task.resume()
-    }
-
+//            }
+//        }
+//        task.resume()
+//
+//        return task
+//    }
 }
