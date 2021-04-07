@@ -42,7 +42,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R3f-lO-ETY" customClass="LoginTextField" customModule="On_the_Map" customModuleProvider="target">
-                                <rect key="frame" x="20" y="459" width="373" height="50"/>
+                                <rect key="frame" x="20.5" y="459" width="373" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U4F-z0-ABe"/>
                                 </constraints>
@@ -73,6 +73,10 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-Ea-ozy" userLabel="Activity Indicator">
+                                <rect key="frame" x="197" y="635" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="PrimaryLight"/>
@@ -99,7 +103,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="pHP-Ea-ozy" id="Gfc-Vy-Bp9"/>
+                        <outlet property="facebookLoginButton" destination="xOI-5W-wwi" id="Ua4-yl-gBr"/>
+                        <outlet property="loginButton" destination="JBE-IN-WnI" id="hfP-J2-hcU"/>
                         <outlet property="passwordTextField" destination="R3f-lO-ETY" id="HOV-0W-wAf"/>
+                        <outlet property="signUpButton" destination="jtI-C2-PzY" id="z8P-6d-dbI"/>
                         <outlet property="usernameTextField" destination="VFX-ND-0zX" id="z43-ca-8cy"/>
                         <segue destination="YQc-F0-Alu" kind="presentation" identifier="completeLogin" modalPresentationStyle="fullScreen" id="Gza-Xz-99r"/>
                     </connections>
@@ -123,7 +131,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61L-ZP-MRx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328" y="885"/>
+            <point key="canvasLocation" x="2035" y="499"/>
         </scene>
         <!--List-->
         <scene sceneID="Iae-Wk-kNl">
@@ -158,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnc-Ix-bb8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="732"/>
+            <point key="canvasLocation" x="2951" y="499"/>
         </scene>
         <!--On the Map-->
         <scene sceneID="BCq-kg-9ns">
@@ -194,7 +202,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5S-cX-dnr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="-136"/>
+            <point key="canvasLocation" x="2951" y="-260"/>
         </scene>
         <!--List-->
         <scene sceneID="Tta-1q-YVq">
@@ -211,7 +219,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wC4-3m-eTz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036" y="-84"/>
+            <point key="canvasLocation" x="2035" y="-260"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xJY-4L-P4F">

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6F615B25261CF19A00CC863A /* FacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B24261CF19A00CC863A /* FacebookButton.swift */; };
+		6F615B2B261D0E6400CC863A /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B2A261D0E6400CC863A /* UdacityClient.swift */; };
+		6F615B37261D169C00CC863A /* GenericNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B36261D169C00CC863A /* GenericNetwork.swift */; };
+		6F615B3A261D1A2800CC863A /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B39261D1A2800CC863A /* LoginResponse.swift */; };
+		6F615B3D261D1B8D00CC863A /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B3C261D1B8D00CC863A /* LoginRequest.swift */; };
 		6FBAAEE0261BBB8500632D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEDF261BBB8500632D1C /* AppDelegate.swift */; };
 		6FBAAEE2261BBB8500632D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEE1261BBB8500632D1C /* SceneDelegate.swift */; };
 		6FBAAEE4261BBB8500632D1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEE3261BBB8500632D1C /* LoginViewController.swift */; };
@@ -23,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		6F615B24261CF19A00CC863A /* FacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookButton.swift; sourceTree = "<group>"; };
+		6F615B2A261D0E6400CC863A /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		6F615B36261D169C00CC863A /* GenericNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNetwork.swift; sourceTree = "<group>"; };
+		6F615B39261D1A2800CC863A /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		6F615B3C261D1B8D00CC863A /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		6FBAAEDC261BBB8500632D1C /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBAAEDF261BBB8500632D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBAAEE1261BBB8500632D1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F615B29261D0AF000CC863A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				6F615B2E261D0E7A00CC863A /* Requests */,
+				6F615B2F261D0E9100CC863A /* Responses */,
+				6F615B2A261D0E6400CC863A /* UdacityClient.swift */,
+				6F615B36261D169C00CC863A /* GenericNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		6F615B2E261D0E7A00CC863A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				6F615B3C261D1B8D00CC863A /* LoginRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		6F615B2F261D0E9100CC863A /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				6F615B39261D1A2800CC863A /* LoginResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		6F615B30261D10AE00CC863A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		6FBAAED3261BBB8500632D1C = {
 			isa = PBXGroup;
 			children = (
@@ -71,10 +113,12 @@
 				6FBAAEED261BBB8600632D1C /* Info.plist */,
 				6FBAAEDF261BBB8500632D1C /* AppDelegate.swift */,
 				6FBAAEE1261BBB8500632D1C /* SceneDelegate.swift */,
+				6FBAAEF8261BBF0600632D1C /* Assets */,
+				6F615B30261D10AE00CC863A /* Protocols */,
 				6FBAAEF5261BBEE900632D1C /* Model */,
 				6FBAAEF6261BBEF200632D1C /* View */,
 				6FBAAEF7261BBEF900632D1C /* Controller */,
-				6FBAAEF8261BBF0600632D1C /* Assets */,
+				6F615B29261D0AF000CC863A /* Network */,
 			);
 			path = "On the Map";
 			sourceTree = "<group>";
@@ -212,11 +256,15 @@
 				6FBAAF0E261CBCE800632D1C /* UIViewController.swift in Sources */,
 				6FBAAF04261BC7E500632D1C /* LoginButton.swift in Sources */,
 				6FBAAEE4261BBB8500632D1C /* LoginViewController.swift in Sources */,
+				6F615B3D261D1B8D00CC863A /* LoginRequest.swift in Sources */,
 				6FBAAF00261BC7A500632D1C /* Colors.swift in Sources */,
 				6FBAAEE0261BBB8500632D1C /* AppDelegate.swift in Sources */,
 				6F615B25261CF19A00CC863A /* FacebookButton.swift in Sources */,
+				6F615B37261D169C00CC863A /* GenericNetwork.swift in Sources */,
 				6FBAAF07261BCDC300632D1C /* LoginTextField.swift in Sources */,
 				6FBAAEE2261BBB8500632D1C /* SceneDelegate.swift in Sources */,
+				6F615B3A261D1A2800CC863A /* LoginResponse.swift in Sources */,
+				6F615B2B261D0E6400CC863A /* UdacityClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
