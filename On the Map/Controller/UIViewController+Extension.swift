@@ -23,4 +23,13 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil ))
         present(alert, animated: true, completion: nil)
     }
+    
+    func openUrl(_ urlPath: String) {
+        let url = URL(string: urlPath)!
+        if UIApplication.shared.canOpenURL(url) {
+            DispatchQueue.main.async {
+                UIApplication.shared.open(url)
+            }
+        }
+    }
 }

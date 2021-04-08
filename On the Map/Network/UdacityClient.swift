@@ -47,14 +47,14 @@ class UdacityClient: BaseClient {
         }
     }
 
-//    class func getStudentLocations(completion: @escaping ([StudentLocation], Error?) -> Void) {
-//        super.taskForGETRequest(url: Endpoints.getStudentLocations.url,
-//                                responseType: StudentLocationResults.self) { response, error in
-//            if let response = response {
-//                completion(response.results, nil)
-//            } else {
-//                completion([], error)
-//            }
-//        }
-//    }
+    class func getStudentLocations(completion: @escaping ([StudentLocation], Error?) -> Void) {
+        super.taskForGETRequest(url: Endpoints.getStudentLocations.url,
+                                responseType: StudentLocationsResponse.self) { response, error in
+            if let response = response {
+                completion(response.results, nil)
+            } else {
+                completion([], error)
+            }
+        }
+    }
 }

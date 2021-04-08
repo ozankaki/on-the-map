@@ -9,6 +9,12 @@ import Foundation
 
 class BaseClient {
     
+    class func trimUdacityResponse(_ data: Data) -> Data {
+        let range = 5..<data.count
+        let newData = data.subdata(in: range)
+        return newData
+    }
+    
     class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(
         url: URL, responseType: ResponseType.Type, body: RequestType,
         completion: @escaping (ResponseType?, Error?) -> Void) {
@@ -55,42 +61,37 @@ class BaseClient {
         }
         task.resume()
     }
-    
-    class func trimUdacityResponse(_ data: Data) -> Data {
-        let range = 5..<data.count
-        let newData = data.subdata(in: range)
-        return newData
-    }
 
-//    class func taskForGETRequest<ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, completion: @escaping (ResponseType?, Error?) -> Void) -> URLSessionDataTask {
-//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data else {
-//                DispatchQueue.main.async {
-//                    completion(nil, error)
-//                }
-//                return
-//            }
-//            let decoder = JSONDecoder()
-//            do {
-//                let responseObject = try decoder.decode(ResponseType.self, from: data)
-//                DispatchQueue.main.async {
-//                    completion(responseObject, nil)
-//                }
-//            } catch {
-//                do {
-//                    let errorResponse = try decoder.decode(ResponseType, from: data) as Error
-//                    DispatchQueue.main.async {
-//                        completion(nil, errorResponse)
-//                    }
-//                } catch {
-//                    DispatchQueue.main.async {
-//                        completion(nil, error)
-//                    }
-//                }
-//            }
-//        }
-//        task.resume()
-//
-//        return task
-//    }
+    class func taskForGETRequest<ResponseType: Decodable>(
+        url: URL, responseType: ResponseType.Type,
+        completion: @escaping (ResponseType?, Error?) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
+            } catch {
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
+                    DispatchQueue.main.async {
+                        completion(nil, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }
