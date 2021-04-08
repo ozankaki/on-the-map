@@ -11,7 +11,6 @@ class StudentLocationsTableViewController: UITableViewController {
 
     @IBOutlet weak var studentLocationsTableView: UITableView!
     
-    var studentLocations: [StudentLocation] = []
     var tableRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -25,7 +24,9 @@ class StudentLocationsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadStudentLocation()
+        if UdacityClient.studentLocations.count > 0 {
+            self.loadStudentLocations()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,11 +34,11 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentLocations.count
+        return UdacityClient.studentLocations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let studentLocation = studentLocations[indexPath.row]
+        let studentLocation = UdacityClient.studentLocations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationTableViewCell")!
         cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         cell.detailTextLabel?.text = "\(studentLocation.mediaURL)"
@@ -45,22 +46,26 @@ class StudentLocationsTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let student = studentLocations[indexPath.row]
-        openUrl(student.mediaURL)
-    }
-    
-    func loadStudentLocation() {
-        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(studentLocations:error:))
+    func loadStudentLocations() {
+        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        self.loadStudentLocation()
+        self.loadStudentLocations()
         tableRefreshControl.endRefreshing()
     }
     
-    func handleStudentLocationsResponse(studentLocations: [StudentLocation], error: Error?) {
-        self.studentLocations = studentLocations
-        self.studentLocationsTableView.reloadData()
+    func handleStudentLocationsResponse(result: Bool, error: Error?) {
+        self.reloadStudentLocations()
+    }
+    
+    func reloadLocations() {
+        self.reloadStudentLocations()
+    }
+    
+    func reloadStudentLocations() {
+        if studentLocationsTableView != nil {
+            self.studentLocationsTableView.reloadData()
+        }
     }
 }

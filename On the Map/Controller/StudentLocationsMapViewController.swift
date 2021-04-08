@@ -11,7 +11,6 @@ import MapKit
 class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var studentLocationsMapView: MKMapView!
-    var studentLocations: [StudentLocation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,7 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         studentLocationsMapView.delegate = self
-        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(studentLocations:error:))
+        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -41,16 +40,23 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
         }
     }
     
-    func handleStudentLocationsResponse(studentLocations: [StudentLocation], error: Error?) {
-        self.studentLocations = studentLocations
+    func handleStudentLocationsResponse(result: Bool, error: Error?) {
+        self.loadStudentLocations()
+    }
+    
+    func loadStudentLocations() {
         studentLocationsMapView.removeAnnotations(studentLocationsMapView.annotations)
-        for location in studentLocations {
+        for location in UdacityClient.studentLocations {
             let annotation = MKPointAnnotation()
             annotation.title = "\(location.firstName) \(location.lastName)"
             annotation.subtitle = location.mediaURL
             annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             studentLocationsMapView.addAnnotation(annotation)
         }
+    }
+    
+    func reloadLocations() {
+        self.loadStudentLocations()
     }
 
 }

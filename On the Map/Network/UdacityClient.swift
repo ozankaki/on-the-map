@@ -9,6 +9,8 @@ import UIKit
 
 class UdacityClient: BaseClient {
     
+    static var studentLocations = [StudentLocation]()
+    
     struct Auth {
         static var key = ""
         static var sessionId = ""
@@ -47,13 +49,14 @@ class UdacityClient: BaseClient {
         }
     }
 
-    class func getStudentLocations(completion: @escaping ([StudentLocation], Error?) -> Void) {
+    class func getStudentLocations(completion: @escaping (Bool, Error?) -> Void) {
         super.taskForGETRequest(url: Endpoints.getStudentLocations.url,
                                 responseType: StudentLocationsResponse.self) { response, error in
             if let response = response {
-                completion(response.results, nil)
+                UdacityClient.studentLocations = response.results
+                completion(true, nil)
             } else {
-                completion([], error)
+                completion(false, error)
             }
         }
     }
