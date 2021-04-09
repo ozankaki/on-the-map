@@ -12,7 +12,7 @@ class FacebookButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        backgroundColor = UIColor.facebook
+        layer.cornerRadius = 5.0
         let titlesize = (titleLabel?.frame.size.width)!
         let frameSize = frame.size.width
         let imageSize = (imageView?.frame.size.width)!

@@ -12,8 +12,7 @@ class LoginButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        tintColor = UIColor.white
-        backgroundColor = UIColor.buttonBackground
+        layer.cornerRadius = 5.0
     }
 
 }
