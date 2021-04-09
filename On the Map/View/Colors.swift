@@ -8,8 +8,7 @@
 import UIKit
 
 extension UIColor {
-    static let background = UIColor(named: "Background")!
-    static let buttonBackground = UIColor(named: "ButtonBackground")!
     static let facebook = UIColor(named: "Facebook")!
+    static let udacityBlue = UIColor(named: "Udacity")!
     static let transparentWhite = UIColor(white: 1, alpha: 0.3)
 }

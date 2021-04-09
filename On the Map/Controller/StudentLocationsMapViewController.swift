@@ -19,7 +19,7 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         studentLocationsMapView.delegate = self
-        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
+        UdacityClient().getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

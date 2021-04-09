@@ -47,7 +47,7 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     func loadStudentLocations() {
-        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
+        UdacityClient().getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
     }
     
     @objc func refresh(_ sender: AnyObject) {

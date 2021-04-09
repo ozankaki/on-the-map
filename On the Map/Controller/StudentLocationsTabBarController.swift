@@ -18,7 +18,8 @@ class StudentLocationsTabBarController: UITabBarController {
     }
     
     @IBAction func refreshLocations(_ sender: Any) {
-        UdacityClient.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
+        let client = UdacityClient()
+        client.getStudentLocations(completion: handleStudentLocationsResponse(result:error:))
     }
     
     @IBAction func addLocation(_ sender: Any) {

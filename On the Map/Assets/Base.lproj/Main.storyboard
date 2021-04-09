@@ -19,7 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBE-IN-WnI" customClass="LoginButton" customModule="On_the_Map" customModuleProvider="target">
                                 <rect key="frame" x="20.5" y="300" width="373" height="50"/>
-                                <color key="backgroundColor" red="0.29391291739999997" green="0.62701255079999996" blue="0.84709167480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="Udacity"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iSm-vO-ctB"/>
                                 </constraints>
@@ -65,10 +65,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Don't have an acoount? Sign Up"/>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="pHP-Ea-ozy" userLabel="Activity Indicator">
-                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
-                                <color key="color" red="0.29391291739999997" green="0.62701255079999996" blue="0.84709167480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,9 +75,7 @@
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="top" secondItem="fez-Cs-jg5" secondAttribute="bottom" constant="20" id="Q6D-2v-REc"/>
                             <constraint firstItem="jtI-C2-PzY" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="10" id="R5f-e8-pNK"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RPS-lh-ujj"/>
-                            <constraint firstItem="pHP-Ea-ozy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="S9n-3B-Esa"/>
                             <constraint firstItem="jtI-C2-PzY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uoi-0M-Hl3"/>
-                            <constraint firstItem="pHP-Ea-ozy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Zmk-JU-9x5"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bKs-EQ-O4i"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c3h-J0-sOT"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="top" secondItem="VFX-ND-0zX" secondAttribute="bottom" constant="10" id="cdc-Mw-SJr"/>
@@ -95,7 +89,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="pHP-Ea-ozy" id="Gfc-Vy-Bp9"/>
                         <outlet property="facebookLoginButton" destination="xOI-5W-wwi" id="Ua4-yl-gBr"/>
                         <outlet property="loginButton" destination="JBE-IN-WnI" id="hfP-J2-hcU"/>
                         <outlet property="passwordTextField" destination="R3f-lO-ETY" id="HOV-0W-wAf"/>
@@ -254,6 +247,9 @@
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="Facebook">
             <color red="0.31146278979999997" green="0.39843767879999997" blue="0.64708888529999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Udacity">
+            <color red="0.29391291739999997" green="0.62701255079999996" blue="0.84709167480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

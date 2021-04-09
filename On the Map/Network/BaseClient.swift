@@ -7,17 +7,18 @@
 
 import Foundation
 
-class BaseClient {
+class BaseClient: Loadable {
     
-    class func trimUdacityResponse(_ data: Data) -> Data {
+    func trimUdacityResponse(_ data: Data) -> Data {
         let range = 5..<data.count
         let newData = data.subdata(in: range)
         return newData
     }
     
-    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(
+    func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(
         url: URL, responseType: ResponseType.Type, body: RequestType,
         completion: @escaping (ResponseType?, Error?) -> Void) {
+        startLoading()
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         do {
@@ -25,6 +26,7 @@ class BaseClient {
             request.httpBody = json
         } catch {
             DispatchQueue.main.async {
+                self.stopLoading()
                 completion(nil, error)
             }
         }
@@ -40,20 +42,23 @@ class BaseClient {
                 return
             }
             let decoder = JSONDecoder()
-            let newData = trimUdacityResponse(data)
+            let newData = self.trimUdacityResponse(data)
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: newData)
                 DispatchQueue.main.async {
+                    self.stopLoading()
                     completion(responseObject, nil)
                 }
             } catch {
                 do {
                     let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
                     DispatchQueue.main.async {
+                        self.stopLoading()
                         completion(nil, errorResponse)
                     }
                 } catch {
                     DispatchQueue.main.async {
+                        self.stopLoading()
                         completion(nil, error)
                     }
                 }
@@ -62,13 +67,14 @@ class BaseClient {
         task.resume()
     }
 
-    class func taskForGETRequest<ResponseType: Decodable>(
+    func taskForGETRequest<ResponseType: Decodable>(
         url: URL, responseType: ResponseType.Type,
         completion: @escaping (ResponseType?, Error?) -> Void) {
-        
+        self.startLoading()
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 DispatchQueue.main.async {
+                    self.stopLoading()
                     completion(nil, error)
                 }
                 return
@@ -77,16 +83,19 @@ class BaseClient {
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
+                    self.stopLoading()
                     completion(responseObject, nil)
                 }
             } catch {
                 do {
                     let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
                     DispatchQueue.main.async {
+                        self.stopLoading()
                         completion(nil, errorResponse)
                     }
                 } catch {
                     DispatchQueue.main.async {
+                        self.stopLoading()
                         completion(nil, error)
                     }
                 }

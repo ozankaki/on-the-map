@@ -34,7 +34,7 @@ class UdacityClient: BaseClient {
         }
     }
     
-    class func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
+    func login(username: String, password: String, completion: @escaping (Bool, Error?) -> Void) {
         let udacity = Udacity(username: username, password: password)
         let body = LoginRequest(udacity: udacity)
         super.taskForPOSTRequest(url: Endpoints.login.url,
@@ -49,7 +49,7 @@ class UdacityClient: BaseClient {
         }
     }
 
-    class func getStudentLocations(completion: @escaping (Bool, Error?) -> Void) {
+    func getStudentLocations(completion: @escaping (Bool, Error?) -> Void) {
         super.taskForGETRequest(url: Endpoints.getStudentLocations.url,
                                 responseType: StudentLocationsResponse.self) { response, error in
             if let response = response {

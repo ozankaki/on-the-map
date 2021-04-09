@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         setLoggingIn(true)
         // TODO: use textfields
-        UdacityClient.login(username: "ozankaki@gmail.com", password: "Ok125125!@z",
+        UdacityClient().login(username: "ozankaki@gmail.com", password: "Ok125125!@z",
                             completion: handleLoginResponse(success:error:))
     }
 
@@ -35,11 +35,11 @@ class LoginViewController: UIViewController {
     }
     
     func setLoggingIn(_ loggingIn: Bool) {
-        if loggingIn {
-            activityIndicator.startAnimating()
-        } else {
-            activityIndicator.stopAnimating()
-        }
+//        if loggingIn {
+//            activityIndicator.startAnimating()
+//        } else {
+//            activityIndicator.stopAnimating()
+//        }
         usernameTextField.isEnabled = !loggingIn
         passwordTextField.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
