@@ -41,7 +41,11 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func handleStudentLocationsResponse(result: Bool, error: Error?) {
-        self.loadStudentLocations()
+        if result {
+            self.loadStudentLocations()
+        } else {
+            showAlert(message: error?.localizedDescription ?? Constants.Errors.genericError)
+        }
     }
     
     func loadStudentLocations() {

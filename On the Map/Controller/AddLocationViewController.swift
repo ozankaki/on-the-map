@@ -51,7 +51,7 @@ class AddLocationViewController: UIViewController {
     
     func getLocationFromAddress() {
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(address) { [weak self] placemarks, error in
+        geocoder.geocodeAddressString(address) { [weak self] placemarks, _ in
             if let placemark = placemarks?.first, let location = placemark.location {
                 let mark = MKPlacemark(placemark: placemark)
 
@@ -64,7 +64,12 @@ class AddLocationViewController: UIViewController {
                 }
                 self?.location = location
             } else {
-                print(error!)
+                let alert = UIAlertController(title: Constants.wrongAddressTitle,
+                                              message: Constants.Errors.wrongAddress, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: {_ in
+                    self?.navigationController?.popViewController(animated: true)
+                }))
+                self!.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -74,6 +79,8 @@ class AddLocationViewController: UIViewController {
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)
             }
+        } else {
+            showAlert(message: error?.localizedDescription ?? Constants.Errors.genericError)
         }
     }
 

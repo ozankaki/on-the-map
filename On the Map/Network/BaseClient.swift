@@ -33,7 +33,6 @@ class BaseClient: Loadable {
         
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        // TODO: use response for _
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard var data = data else {
                 DispatchQueue.main.async {

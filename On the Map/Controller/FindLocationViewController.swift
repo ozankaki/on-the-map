@@ -17,6 +17,9 @@ class FindLocationViewController: UIViewController {
     }
     
     @IBAction func findLocation(_ sender: Any) {
+        if locationTextField.isEmpty || linkTextField.isEmpty {
+            showAlert(message: Constants.Errors.requiredFields)
+        }
         performSegue(withIdentifier: "addLocationSeque", sender: self)
     }
     

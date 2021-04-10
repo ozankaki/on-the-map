@@ -30,7 +30,7 @@ class UdacityClient: BaseClient {
         var path: String {
             switch self {
             case .login: return Endpoints.base + "/session"
-            case .getStudentLocations: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation"
             case .getUserData: return Endpoints.base + "/users/" + Auth.key
             case .addStudentLocation: return Endpoints.base + "/StudentLocation"
             }
@@ -71,7 +71,7 @@ class UdacityClient: BaseClient {
     
     func getUserData() {
         super.taskForGETRequest(url: Endpoints.getUserData.url,
-                                responseType: UserDataResponse.self) { response, error in
+                                responseType: UserDataResponse.self) { response, _ in
             if let response = response {
                 Auth.firstName = response.firstName
                 Auth.lastName = response.lastName

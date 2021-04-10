@@ -24,9 +24,12 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginTapped(_ sender: Any) {
+        if usernameTextField.isEmpty || passwordTextField.isEmpty {
+            showAlert(message: Constants.Errors.requiredFields)
+        }
         setLoggingIn(true)
-        // TODO: use textfields
-        UdacityClient().login(username: "ozankaki@gmail.com", password: "Ok125125!@z",
+        
+        UdacityClient().login(username: usernameTextField.text!, password: passwordTextField.text!,
                             completion: handleLoginResponse(success:error:))
     }
 
@@ -48,7 +51,7 @@ class LoginViewController: UIViewController {
             performSegue(withIdentifier: "completeLogin", sender: nil)
         } else {
             showAlert(title: Constants.failedLogin,
-                      message: error?.localizedDescription ?? Constants.invalidCredentials)
+                      message: error?.localizedDescription ?? Constants.Errors.invalidCredentials)
         }
     }
 }

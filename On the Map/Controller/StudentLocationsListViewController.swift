@@ -48,8 +48,7 @@ class StudentLocationsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let studentLocation = UdacityClient.studentLocations[indexPath.row]
-        if let path = studentLocation.mediaURL
-        {
+        if let path = studentLocation.mediaURL {
             openUrl(path)
         }
     }
@@ -64,7 +63,11 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     func handleStudentLocationsResponse(result: Bool, error: Error?) {
-        self.reloadStudentLocations()
+        if result {
+            self.reloadStudentLocations()
+        } else {
+            showAlert(message: error?.localizedDescription ?? Constants.Errors.genericError)
+        }
     }
     
     func reloadLocations() {
