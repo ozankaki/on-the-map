@@ -24,7 +24,7 @@ class StudentLocationsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if UdacityClient.studentLocations.count > 0 {
+        if Student.locations.count > 0 {
             self.loadStudentLocations()
         }
     }
@@ -34,11 +34,11 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UdacityClient.studentLocations.count
+        return Student.locations.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let studentLocation = UdacityClient.studentLocations[indexPath.row]
+        let studentLocation = Student.locations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationTableViewCell")!
         cell.textLabel?.text = "\(studentLocation.firstName ?? "") \(studentLocation.lastName ?? "")"
         cell.detailTextLabel?.text = "\(studentLocation.mediaURL ?? "")"
@@ -47,7 +47,7 @@ class StudentLocationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let studentLocation = UdacityClient.studentLocations[indexPath.row]
+        let studentLocation = Student.locations[indexPath.row]
         if let path = studentLocation.mediaURL {
             openUrl(path)
         }

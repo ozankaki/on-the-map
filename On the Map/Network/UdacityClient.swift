@@ -9,8 +9,6 @@ import UIKit
 
 class UdacityClient: BaseClient {
     
-    static var studentLocations = [StudentInformation]()
-    
     struct Auth {
         static var key = ""
         static var sessionId = ""
@@ -32,7 +30,7 @@ class UdacityClient: BaseClient {
             switch self {
             case .signUp: return "https://auth.udacity.com/sign-up"
             case .login: return Endpoints.base + "/session"
-            case .getStudentLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt&limit=100"
             case .getUserData: return Endpoints.base + "/users/" + Auth.key
             case .addStudentLocation: return Endpoints.base + "/StudentLocation"
             }
@@ -63,7 +61,7 @@ class UdacityClient: BaseClient {
         super.taskForGETRequest(url: Endpoints.getStudentLocations.url,
                                 responseType: StudentLocationsResponse.self) { response, error in
             if let response = response {
-                UdacityClient.studentLocations = response.results
+                Student.locations = response.results
                 completion(true, nil)
             } else {
                 completion(false, error)

@@ -12,10 +12,6 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var studentLocationsMapView: MKMapView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         studentLocationsMapView.delegate = self
@@ -50,7 +46,7 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     
     func loadStudentLocations() {
         studentLocationsMapView.removeAnnotations(studentLocationsMapView.annotations)
-        for location in UdacityClient.studentLocations {
+        for location in Student.locations {
             let annotation = MKPointAnnotation()
             annotation.title = "\(location.firstName ?? "") \(location.lastName ?? "")"
             annotation.subtitle = location.mediaURL

@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class AddLocationViewController: UIViewController {
+class AddLocationViewController: UIViewController, Loadable {
 
     @IBOutlet weak var studentLocationMapView: MKMapView!
     
@@ -50,6 +50,7 @@ class AddLocationViewController: UIViewController {
     }
     
     func getLocationFromAddress() {
+        self.startLoading()
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { [weak self] placemarks, _ in
             if let placemark = placemarks?.first, let location = placemark.location {
@@ -63,7 +64,9 @@ class AddLocationViewController: UIViewController {
                     self?.studentLocationMapView.addAnnotation(mark)
                 }
                 self?.location = location
+                self?.stopLoading()
             } else {
+                self?.stopLoading()
                 let alert = UIAlertController(title: Constants.wrongAddressTitle,
                                               message: Constants.Errors.wrongAddress, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Back", style: .cancel, handler: {_ in
