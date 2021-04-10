@@ -56,6 +56,18 @@ class UdacityClient: BaseClient {
             }
         }
     }
+    
+    func logout(completion: @escaping (Bool, Error?) -> Void) {
+        super.taskForDELETERequest(url: Endpoints.login.url, responseType: LogoutResponse.self) { response, error in
+            if response != nil {
+                Auth.key = ""
+                Auth.sessionId = ""
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
 
     func getStudentLocations(completion: @escaping (Bool, Error?) -> Void) {
         super.taskForGETRequest(url: Endpoints.getStudentLocations.url,

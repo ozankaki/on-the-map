@@ -111,4 +111,57 @@ class BaseClient: Loadable {
         }
         task.resume()
     }
+    
+    func taskForDELETERequest<ResponseType: Decodable>(
+        url: URL, responseType: ResponseType.Type,
+        completion: @escaping (ResponseType?, Error?) -> Void) {
+        startLoading()
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        for cookie in sharedCookieStorage.cookies! {
+          if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        if let xsrfCookie = xsrfCookie {
+          request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard var data = data else {
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                    completion(nil, error)
+                }
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            if responseType == LogoutResponse.self {
+                data = self.trimUdacityResponse(data)
+            }
+            
+            do {
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                    completion(responseObject, nil)
+                }
+            } catch {
+                do {
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
+                    DispatchQueue.main.async {
+                        self.stopLoading()
+                        completion(nil, errorResponse)
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        self.stopLoading()
+                        completion(nil, error)
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }

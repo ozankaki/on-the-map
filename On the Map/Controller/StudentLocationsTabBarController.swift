@@ -14,7 +14,13 @@ class StudentLocationsTabBarController: UITabBarController {
     }
     
     @IBAction func logoutTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+        UdacityClient().logout {success, error in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                self.showAlert(message: error?.localizedDescription ?? Constants.Errors.genericError)
+            }
+        }
     }
     
     @IBAction func refreshLocations(_ sender: Any) {
