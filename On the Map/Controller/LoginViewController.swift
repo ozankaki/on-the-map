@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: Any) {
         if usernameTextField.isEmpty || passwordTextField.isEmpty {
             showAlert(message: Constants.Errors.requiredFields)
+            return
         }
         setLoggingIn(true)
         

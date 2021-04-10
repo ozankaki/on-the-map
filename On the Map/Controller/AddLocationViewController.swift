@@ -22,31 +22,31 @@ class AddLocationViewController: UIViewController {
     }
     
     @IBAction func addLocation(_ sender: Any) {
-        let studentLocation = prepareStudentLocation()
-        UdacityClient().addStudentLocation(studentLocation: studentLocation,
+        let studentInformation = prepareStudentInformation()
+        UdacityClient().addStudentInformation(studentInformation: studentInformation,
                                            completion: handleAddLocationResponse(result:error:))
         
     }
     
-    func prepareStudentLocation() -> StudentLocation {
+    func prepareStudentInformation() -> StudentInformation {
         let today = Date()
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         let dateString = formatter.string(from: today)
         
-        let studentLocation = StudentLocation()
-        studentLocation.firstName = UdacityClient.Auth.firstName
-        studentLocation.lastName = UdacityClient.Auth.lastName
-        studentLocation.longitude = (self.location?.coordinate.longitude)!
-        studentLocation.latitude = (self.location?.coordinate.latitude)!
-        studentLocation.mapString = address
-        studentLocation.mediaURL = link
-        studentLocation.uniqueKey = UdacityClient.Auth.key
-        studentLocation.objectId = UdacityClient.Auth.sessionId
-        studentLocation.createdAt = dateString
-        studentLocation.updatedAt = dateString
+        let info = StudentInformation()
+        info.firstName = UdacityClient.Auth.firstName
+        info.lastName = UdacityClient.Auth.lastName
+        info.longitude = (self.location?.coordinate.longitude)!
+        info.latitude = (self.location?.coordinate.latitude)!
+        info.mapString = address
+        info.mediaURL = link
+        info.uniqueKey = UdacityClient.Auth.key
+        info.objectId = UdacityClient.Auth.sessionId
+        info.createdAt = dateString
+        info.updatedAt = dateString
         
-        return studentLocation
+        return info
     }
     
     func getLocationFromAddress() {

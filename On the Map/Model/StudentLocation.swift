@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StudentLocation: Codable {
+class StudentInformation: Codable {
     var firstName: String?
     var lastName: String?
     var longitude: Double?

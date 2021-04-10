@@ -9,7 +9,7 @@ import UIKit
 
 class UdacityClient: BaseClient {
     
-    static var studentLocations = [StudentLocation]()
+    static var studentLocations = [StudentInformation]()
     
     struct Auth {
         static var key = ""
@@ -32,7 +32,7 @@ class UdacityClient: BaseClient {
             switch self {
             case .signUp: return "https://auth.udacity.com/sign-up"
             case .login: return Endpoints.base + "/session"
-            case .getStudentLocations: return Endpoints.base + "/StudentLocation"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation?order=-updatedAt"
             case .getUserData: return Endpoints.base + "/users/" + Auth.key
             case .addStudentLocation: return Endpoints.base + "/StudentLocation"
             }
@@ -81,10 +81,10 @@ class UdacityClient: BaseClient {
         }
     }
     
-    func addStudentLocation(studentLocation: StudentLocation, completion: @escaping (Bool, Error?) -> Void) {
+    func addStudentInformation(studentInformation: StudentInformation, completion: @escaping (Bool, Error?) -> Void) {
         super.taskForPOSTRequest(url: Endpoints.addStudentLocation.url,
                                           responseType: AddLocationResponse.self,
-                                          body: studentLocation) { response, error in
+                                          body: studentInformation) { response, error in
             if let response = response {
                 Auth.objectId = response.objectId ?? ""
                 completion(true, nil)

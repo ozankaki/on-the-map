@@ -41,6 +41,7 @@ class BaseClient: Loadable {
                 }
                 return
             }
+            
             let decoder = JSONDecoder()
             if responseType == LoginResponse.self {
                 data = self.trimUdacityResponse(data)
