@@ -7,15 +7,19 @@
 
 import Foundation
 
-struct StudentLocation: Codable {
-    let firstName: String
-    let lastName: String
-    let longitude: Double
-    let latitude: Double
-    let mapString: String
-    let mediaURL: String
-    let uniqueKey: String
-    let objectId: String
-    let createdAt: String
-    let updatedAt: String
+class StudentLocation: Codable {
+    var firstName: String?
+    var lastName: String?
+    var longitude: Double?
+    var latitude: Double?
+    var mapString: String?
+    var mediaURL: String?
+    var uniqueKey: String?
+    var objectId: String?
+    var createdAt: String?
+    var updatedAt: String?
+    
+    init() {
+        
+    }
 }

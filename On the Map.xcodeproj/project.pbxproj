@@ -21,6 +21,11 @@
 		6F615B63261FB41E00CC863A /* StudentLocationsTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B62261FB41E00CC863A /* StudentLocationsTabBarController.swift */; };
 		6F615B68262058FB00CC863A /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B67262058FB00CC863A /* Loadable.swift */; };
 		6F615B6B2620594300CC863A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B6A2620594300CC863A /* LoadingView.swift */; };
+		6F615B6F2620E99E00CC863A /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B6E2620E99E00CC863A /* FindLocationViewController.swift */; };
+		6F615B722620E9AC00CC863A /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B712620E9AC00CC863A /* AddLocationViewController.swift */; };
+		6F615B752620FFA400CC863A /* UserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B742620FFA400CC863A /* UserDataResponse.swift */; };
+		6F615B7826210D1800CC863A /* AddLocationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B7726210D1800CC863A /* AddLocationRequest.swift */; };
+		6F615B7B26210EEF00CC863A /* AddLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F615B7A26210EEF00CC863A /* AddLocationResponse.swift */; };
 		6FBAAEE0261BBB8500632D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEDF261BBB8500632D1C /* AppDelegate.swift */; };
 		6FBAAEE2261BBB8500632D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEE1261BBB8500632D1C /* SceneDelegate.swift */; };
 		6FBAAEE4261BBB8500632D1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEE3261BBB8500632D1C /* LoginViewController.swift */; };
@@ -29,7 +34,7 @@
 		6FBAAEEC261BBB8600632D1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBAAEEA261BBB8600632D1C /* LaunchScreen.storyboard */; };
 		6FBAAEFD261BC65400632D1C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FBAAEFC261BC65400632D1C /* Colors.xcassets */; };
 		6FBAAF00261BC7A500632D1C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAEFF261BC7A500632D1C /* Colors.swift */; };
-		6FBAAF04261BC7E500632D1C /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAF03261BC7E500632D1C /* LoginButton.swift */; };
+		6FBAAF04261BC7E500632D1C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAF03261BC7E500632D1C /* RoundedButton.swift */; };
 		6FBAAF0E261CBCE800632D1C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBAAF0D261CBCE800632D1C /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +53,11 @@
 		6F615B62261FB41E00CC863A /* StudentLocationsTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationsTabBarController.swift; sourceTree = "<group>"; };
 		6F615B67262058FB00CC863A /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		6F615B6A2620594300CC863A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		6F615B6E2620E99E00CC863A /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
+		6F615B712620E9AC00CC863A /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		6F615B742620FFA400CC863A /* UserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataResponse.swift; sourceTree = "<group>"; };
+		6F615B7726210D1800CC863A /* AddLocationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationRequest.swift; sourceTree = "<group>"; };
+		6F615B7A26210EEF00CC863A /* AddLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationResponse.swift; sourceTree = "<group>"; };
 		6FBAAEDC261BBB8500632D1C /* On the Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On the Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBAAEDF261BBB8500632D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBAAEE1261BBB8500632D1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +68,7 @@
 		6FBAAEED261BBB8600632D1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6FBAAEFC261BC65400632D1C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		6FBAAEFF261BC7A500632D1C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		6FBAAF03261BC7E500632D1C /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		6FBAAF03261BC7E500632D1C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		6FBAAF0D261CBCE800632D1C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				6F615B3C261D1B8D00CC863A /* LoginRequest.swift */,
+				6F615B7726210D1800CC863A /* AddLocationRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -98,6 +109,8 @@
 				6F615B39261D1A2800CC863A /* LoginResponse.swift */,
 				6F615B43261DEA8800CC863A /* ErrorResponse.swift */,
 				6F615B4E261E4C1800CC863A /* StudentLocationsResponse.swift */,
+				6F615B742620FFA400CC863A /* UserDataResponse.swift */,
+				6F615B7A26210EEF00CC863A /* AddLocationResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -154,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6FBAAEFF261BC7A500632D1C /* Colors.swift */,
-				6FBAAF03261BC7E500632D1C /* LoginButton.swift */,
+				6FBAAF03261BC7E500632D1C /* RoundedButton.swift */,
 				6F615B24261CF19A00CC863A /* FacebookButton.swift */,
 				6F615B6A2620594300CC863A /* LoadingView.swift */,
 			);
@@ -169,6 +182,8 @@
 				6F615B51261E4E0F00CC863A /* StudentLocationsListViewController.swift */,
 				6F615B54261E5A6D00CC863A /* StudentLocationsMapViewController.swift */,
 				6F615B62261FB41E00CC863A /* StudentLocationsTabBarController.swift */,
+				6F615B6E2620E99E00CC863A /* FindLocationViewController.swift */,
+				6F615B712620E9AC00CC863A /* AddLocationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,22 +293,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FBAAF0E261CBCE800632D1C /* UIViewController+Extension.swift in Sources */,
-				6FBAAF04261BC7E500632D1C /* LoginButton.swift in Sources */,
+				6FBAAF04261BC7E500632D1C /* RoundedButton.swift in Sources */,
 				6F615B55261E5A6D00CC863A /* StudentLocationsMapViewController.swift in Sources */,
 				6F615B52261E4E0F00CC863A /* StudentLocationsListViewController.swift in Sources */,
 				6FBAAEE4261BBB8500632D1C /* LoginViewController.swift in Sources */,
+				6F615B722620E9AC00CC863A /* AddLocationViewController.swift in Sources */,
 				6F615B4C261E4B0200CC863A /* StudentLocation.swift in Sources */,
+				6F615B6F2620E99E00CC863A /* FindLocationViewController.swift in Sources */,
 				6F615B3D261D1B8D00CC863A /* LoginRequest.swift in Sources */,
 				6F615B68262058FB00CC863A /* Loadable.swift in Sources */,
 				6FBAAF00261BC7A500632D1C /* Colors.swift in Sources */,
 				6F615B63261FB41E00CC863A /* StudentLocationsTabBarController.swift in Sources */,
 				6FBAAEE0261BBB8500632D1C /* AppDelegate.swift in Sources */,
 				6F615B25261CF19A00CC863A /* FacebookButton.swift in Sources */,
+				6F615B7826210D1800CC863A /* AddLocationRequest.swift in Sources */,
 				6F615B37261D169C00CC863A /* BaseClient.swift in Sources */,
 				6F615B6B2620594300CC863A /* LoadingView.swift in Sources */,
 				6FBAAEE2261BBB8500632D1C /* SceneDelegate.swift in Sources */,
 				6F615B4F261E4C1800CC863A /* StudentLocationsResponse.swift in Sources */,
+				6F615B7B26210EEF00CC863A /* AddLocationResponse.swift in Sources */,
 				6F615B3A261D1A2800CC863A /* LoginResponse.swift in Sources */,
+				6F615B752620FFA400CC863A /* UserDataResponse.swift in Sources */,
 				6F615B48261E2BEA00CC863A /* Constants.swift in Sources */,
 				6F615B2B261D0E6400CC863A /* UdacityClient.swift in Sources */,
 				6F615B44261DEA8800CC863A /* ErrorResponse.swift in Sources */,

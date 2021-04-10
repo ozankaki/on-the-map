@@ -40,10 +40,18 @@ class StudentLocationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let studentLocation = UdacityClient.studentLocations[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationTableViewCell")!
-        cell.textLabel?.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
-        cell.detailTextLabel?.text = "\(studentLocation.mediaURL)"
+        cell.textLabel?.text = "\(studentLocation.firstName ?? "") \(studentLocation.lastName ?? "")"
+        cell.detailTextLabel?.text = "\(studentLocation.mediaURL ?? "")"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let studentLocation = UdacityClient.studentLocations[indexPath.row]
+        if let path = studentLocation.mediaURL
+        {
+            openUrl(path)
+        }
     }
     
     func loadStudentLocations() {

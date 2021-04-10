@@ -14,6 +14,9 @@ class UdacityClient: BaseClient {
     struct Auth {
         static var key = ""
         static var sessionId = ""
+        static var firstName = ""
+        static var lastName = ""
+        static var objectId = ""
     }
 
     enum Endpoints {
@@ -21,11 +24,15 @@ class UdacityClient: BaseClient {
 
         case login
         case getStudentLocations
+        case getUserData
+        case addStudentLocation
 
         var path: String {
             switch self {
             case .login: return Endpoints.base + "/session"
-            case .getStudentLocations: return Endpoints.base + "/StudentLocation"
+            case .getStudentLocations: return Endpoints.base + "/StudentLocation?limit=100&order=-updatedAt"
+            case .getUserData: return Endpoints.base + "/users/" + Auth.key
+            case .addStudentLocation: return Endpoints.base + "/StudentLocation"
             }
         }
 
@@ -42,6 +49,7 @@ class UdacityClient: BaseClient {
             if let response = response {
                 Auth.key = response.account.key
                 Auth.sessionId = response.session.sessionId
+                UdacityClient().getUserData()
                 completion(true, nil)
             } else {
                 completion(false, error)
@@ -54,6 +62,29 @@ class UdacityClient: BaseClient {
                                 responseType: StudentLocationsResponse.self) { response, error in
             if let response = response {
                 UdacityClient.studentLocations = response.results
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        }
+    }
+    
+    func getUserData() {
+        super.taskForGETRequest(url: Endpoints.getUserData.url,
+                                responseType: UserDataResponse.self) { response, error in
+            if let response = response {
+                Auth.firstName = response.firstName
+                Auth.lastName = response.lastName
+            }
+        }
+    }
+    
+    func addStudentLocation(studentLocation: StudentLocation, completion: @escaping (Bool, Error?) -> Void) {
+        super.taskForPOSTRequest(url: Endpoints.addStudentLocation.url,
+                                          responseType: AddLocationResponse.self,
+                                          body: studentLocation) { response, error in
+            if let response = response {
+                Auth.objectId = response.objectId ?? ""
                 completion(true, nil)
             } else {
                 completion(false, error)

@@ -48,9 +48,9 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
         studentLocationsMapView.removeAnnotations(studentLocationsMapView.annotations)
         for location in UdacityClient.studentLocations {
             let annotation = MKPointAnnotation()
-            annotation.title = "\(location.firstName) \(location.lastName)"
+            annotation.title = "\(location.firstName ?? "") \(location.lastName ?? "")"
             annotation.subtitle = location.mediaURL
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude!, longitude: location.longitude!)
             studentLocationsMapView.addAnnotation(annotation)
         }
     }

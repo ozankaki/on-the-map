@@ -35,23 +35,27 @@ class BaseClient: Loadable {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         // TODO: use response for _
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data else {
+            guard var data = data else {
                 DispatchQueue.main.async {
+                    self.stopLoading()
                     completion(nil, error)
                 }
                 return
             }
             let decoder = JSONDecoder()
-            let newData = self.trimUdacityResponse(data)
+            if responseType == LoginResponse.self {
+                data = self.trimUdacityResponse(data)
+            }
+            
             do {
-                let responseObject = try decoder.decode(ResponseType.self, from: newData)
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {
                     self.stopLoading()
                     completion(responseObject, nil)
                 }
             } catch {
                 do {
-                    let errorResponse = try decoder.decode(ErrorResponse.self, from: newData) as Error
+                    let errorResponse = try decoder.decode(ErrorResponse.self, from: data) as Error
                     DispatchQueue.main.async {
                         self.stopLoading()
                         completion(nil, errorResponse)
@@ -72,7 +76,7 @@ class BaseClient: Loadable {
         completion: @escaping (ResponseType?, Error?) -> Void) {
         self.startLoading()
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
+            guard var data = data else {
                 DispatchQueue.main.async {
                     self.stopLoading()
                     completion(nil, error)
@@ -80,6 +84,10 @@ class BaseClient: Loadable {
                 return
             }
             let decoder = JSONDecoder()
+            if responseType == UserDataResponse.self {
+                data = self.trimUdacityResponse(data)
+            }
+            
             do {
                 let responseObject = try decoder.decode(ResponseType.self, from: data)
                 DispatchQueue.main.async {

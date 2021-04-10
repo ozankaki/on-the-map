@@ -8,21 +8,6 @@
 import UIKit
 
 class LoadingView: UIActivityIndicatorView {
-    
-//    init() {
-//        super.init(frame: .zero)
-//    }
-    
-//    required init?(coder: NSCoder) {
-//        super.init(frame: .zero)
-//    }
-    
-//    let backgroundView: UIView = {
-//        let backgroundView = UIView()
-//        backgroundView.backgroundColor = .red
-//        return backgroundView
-//    }()
-    
     func setupLayout(targetView: UIView) {
         targetView.isUserInteractionEnabled = false
         targetView.addSubview(self)

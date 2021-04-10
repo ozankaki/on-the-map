@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginButton: UIButton {
+class RoundedButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()

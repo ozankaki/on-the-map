@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var facebookLoginButton: FacebookButton!
-    @IBOutlet weak var loginButton: LoginButton!
+    @IBOutlet weak var loginButton: RoundedButton!
     @IBOutlet weak var signUpButton: UIButton!
 
     override func viewDidLoad() {
@@ -35,11 +35,6 @@ class LoginViewController: UIViewController {
     }
     
     func setLoggingIn(_ loggingIn: Bool) {
-//        if loggingIn {
-//            activityIndicator.startAnimating()
-//        } else {
-//            activityIndicator.stopAnimating()
-//        }
         usernameTextField.isEnabled = !loggingIn
         passwordTextField.isEnabled = !loggingIn
         loginButton.isEnabled = !loggingIn
