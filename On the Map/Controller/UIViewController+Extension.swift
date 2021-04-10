@@ -22,6 +22,10 @@ extension UIViewController {
     
     func openUrl(_ urlPath: String) {
         let url = URL(string: urlPath)!
+        self.openUrl(url)
+    }
+    
+    func openUrl(_ url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             DispatchQueue.main.async {
                 UIApplication.shared.open(url)

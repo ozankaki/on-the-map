@@ -60,11 +60,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-u" translatesAutoresizingMaskIntoConstraints="NO" id="fez-Cs-jg5">
                                 <rect key="frame" x="176" y="98" width="62" height="62"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-C2-PzY" userLabel="Signup">
-                                <rect key="frame" x="20.5" y="360" width="373" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtI-C2-PzY" userLabel="Signup">
+                                <rect key="frame" x="294" y="359" width="60" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Don't have an acoount? Sign Up"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="sigUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nio-Xc-9Sg"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHL-w1-kfv">
+                                <rect key="frame" x="107" y="365" width="179" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -73,18 +82,19 @@
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="ARd-NT-tWp"/>
                             <constraint firstItem="JBE-IN-WnI" firstAttribute="top" secondItem="R3f-lO-ETY" secondAttribute="bottom" constant="10" id="Gh6-Rm-ug9"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="top" secondItem="fez-Cs-jg5" secondAttribute="bottom" constant="20" id="Q6D-2v-REc"/>
-                            <constraint firstItem="jtI-C2-PzY" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="10" id="R5f-e8-pNK"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RPS-lh-ujj"/>
-                            <constraint firstItem="jtI-C2-PzY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uoi-0M-Hl3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jtI-C2-PzY" secondAttribute="trailing" constant="60" id="Ycu-1m-5EM"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bKs-EQ-O4i"/>
+                            <constraint firstItem="jtI-C2-PzY" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="9" id="c1p-0K-H7K"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c3h-J0-sOT"/>
                             <constraint firstItem="R3f-lO-ETY" firstAttribute="top" secondItem="VFX-ND-0zX" secondAttribute="bottom" constant="10" id="cdc-Mw-SJr"/>
+                            <constraint firstItem="jtI-C2-PzY" firstAttribute="leading" secondItem="MHL-w1-kfv" secondAttribute="trailing" constant="8" symbolic="YES" id="hbD-Mv-GCT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xOI-5W-wwi" secondAttribute="bottom" constant="10" id="kFA-oW-cBg"/>
                             <constraint firstItem="fez-Cs-jg5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="2" constant="10" id="koO-j1-mxK"/>
-                            <constraint firstItem="jtI-C2-PzY" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="mMX-mX-nep"/>
                             <constraint firstItem="fez-Cs-jg5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qyY-eQ-3Py"/>
                             <constraint firstItem="VFX-ND-0zX" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="tHy-6d-Me4"/>
                             <constraint firstItem="xOI-5W-wwi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="wS3-dn-CkB"/>
+                            <constraint firstItem="MHL-w1-kfv" firstAttribute="top" secondItem="JBE-IN-WnI" secondAttribute="bottom" constant="15" id="wqH-xK-ZEs"/>
                             <constraint firstItem="JBE-IN-WnI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ybW-Qn-bKa"/>
                         </constraints>
                     </view>

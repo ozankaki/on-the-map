@@ -33,6 +33,10 @@ class LoginViewController: UIViewController {
                             completion: handleLoginResponse(success:error:))
     }
 
+    @IBAction func sigUpTapped(_ sender: Any) {
+        openUrl(UdacityClient.Endpoints.signUp.url)
+    }
+    
     func prepareTexField(_ texField: UITextField) {
         texField.delegate = self
     }
