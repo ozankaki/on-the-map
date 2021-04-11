@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     func handleLogoutResponse(result: Bool?, error: Error?) {
         if result != nil && result == true {
-            self.dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
         }
     }
 
@@ -22,7 +22,7 @@ extension UIViewController {
     
     func openUrl(_ urlPath: String) {
         let url = URL(string: urlPath)!
-        self.openUrl(url)
+        openUrl(url)
     }
     
     func openUrl(_ url: URL) {

@@ -74,7 +74,7 @@ class BaseClient: Loadable {
     func taskForGETRequest<ResponseType: Decodable>(
         url: URL, responseType: ResponseType.Type,
         completion: @escaping (ResponseType?, Error?) -> Void) {
-        self.startLoading()
+        startLoading()
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard var data = data else {
                 DispatchQueue.main.async {

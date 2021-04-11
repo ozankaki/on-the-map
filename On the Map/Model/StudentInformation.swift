@@ -7,19 +7,15 @@
 
 import Foundation
 
-class StudentInformation: Codable {
-    var firstName: String?
-    var lastName: String?
-    var longitude: Double?
-    var latitude: Double?
-    var mapString: String?
-    var mediaURL: String?
-    var uniqueKey: String?
-    var objectId: String?
-    var createdAt: String?
-    var updatedAt: String?
-    
-    init() {
-        
-    }
+struct StudentInformation: Codable {
+    let firstName: String
+    var lastName: String
+    var longitude: Double
+    var latitude: Double
+    var mapString: String
+    var mediaURL: String
+    var uniqueKey: String
+    var objectId: String
+    var createdAt: String
+    var updatedAt: String
 }

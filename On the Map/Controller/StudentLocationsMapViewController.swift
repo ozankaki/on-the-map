@@ -38,7 +38,7 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
     
     func handleStudentLocationsResponse(result: Bool, error: Error?) {
         if result {
-            self.loadStudentLocations()
+            loadStudentLocations()
         } else {
             showAlert(message: error?.localizedDescription ?? Constants.Errors.genericError)
         }
@@ -48,15 +48,15 @@ class StudentLocationsMapViewController: UIViewController, MKMapViewDelegate {
         studentLocationsMapView.removeAnnotations(studentLocationsMapView.annotations)
         for location in Student.locations {
             let annotation = MKPointAnnotation()
-            annotation.title = "\(location.firstName ?? "") \(location.lastName ?? "")"
+            annotation.title = "\(location.firstName) \(location.lastName)"
             annotation.subtitle = location.mediaURL
-            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude!, longitude: location.longitude!)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             studentLocationsMapView.addAnnotation(annotation)
         }
     }
     
     func reloadLocations() {
-        self.loadStudentLocations()
+        loadStudentLocations()
     }
 
 }

@@ -34,23 +34,22 @@ class AddLocationViewController: UIViewController, Loadable {
         formatter.dateStyle = .short
         let dateString = formatter.string(from: today)
         
-        let info = StudentInformation()
-        info.firstName = UdacityClient.Auth.firstName
-        info.lastName = UdacityClient.Auth.lastName
-        info.longitude = (self.location?.coordinate.longitude)!
-        info.latitude = (self.location?.coordinate.latitude)!
-        info.mapString = address
-        info.mediaURL = link
-        info.uniqueKey = UdacityClient.Auth.key
-        info.objectId = UdacityClient.Auth.sessionId
-        info.createdAt = dateString
-        info.updatedAt = dateString
+        let info = StudentInformation(firstName: UdacityClient.Auth.firstName,
+                                      lastName: UdacityClient.Auth.lastName,
+                                      longitude: (location?.coordinate.longitude)!,
+                                      latitude: (location?.coordinate.latitude)!,
+                                      mapString: address,
+                                      mediaURL: link,
+                                      uniqueKey: UdacityClient.Auth.key,
+                                      objectId: UdacityClient.Auth.sessionId,
+                                      createdAt: dateString,
+                                      updatedAt: dateString)
         
         return info
     }
     
     func getLocationFromAddress() {
-        self.startLoading()
+        startLoading()
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { [weak self] placemarks, _ in
             if let placemark = placemarks?.first, let location = placemark.location {
