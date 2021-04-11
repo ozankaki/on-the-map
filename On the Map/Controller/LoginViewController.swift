@@ -18,9 +18,9 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        prepareTexField(usernameTextField)
-        prepareTexField(passwordTextField)
+        
+        delegateTexField(usernameTextField, self)
+        delegateTexField(passwordTextField, self)
     }
 
     @IBAction func loginTapped(_ sender: Any) {
@@ -36,10 +36,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func sigUpTapped(_ sender: Any) {
         openUrl(UdacityClient.Endpoints.signUp.url)
-    }
-    
-    func prepareTexField(_ texField: UITextField) {
-        texField.delegate = self
     }
     
     func setLoggingIn(_ loggingIn: Bool) {
@@ -58,11 +54,5 @@ class LoginViewController: UIViewController {
             showAlert(title: Constants.failedLogin,
                       message: error?.localizedDescription ?? Constants.Errors.invalidCredentials)
         }
-    }
-}
-
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
     }
 }

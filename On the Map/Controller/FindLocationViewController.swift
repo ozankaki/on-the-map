@@ -14,6 +14,8 @@ class FindLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegateTexField(locationTextField, self)
+        delegateTexField(linkTextField, self)
     }
     
     @IBAction func findLocation(_ sender: Any) {
@@ -34,10 +36,4 @@ class FindLocationViewController: UIViewController {
         }
     }
 
-}
-
-extension FindLocationViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
 }

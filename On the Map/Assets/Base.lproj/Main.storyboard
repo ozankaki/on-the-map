@@ -144,7 +144,6 @@
         <!--List-->
         <scene sceneID="BCq-kg-9ns">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d5S-cX-dnr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="Dih-fX-6jJ" userLabel="List" customClass="StudentLocationsTableViewController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wlx-TY-TWU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -190,6 +189,7 @@
                         <outlet property="studentLocationsTableView" destination="Wlx-TY-TWU" id="rIQ-8c-KaT"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d5S-cX-dnr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1559" y="823"/>
         </scene>
@@ -377,10 +377,10 @@
         <image name="icon_world" width="52" height="67"/>
         <image name="logo-u" width="62" height="62"/>
         <namedColor name="Facebook">
-            <color red="0.31146278979999997" green="0.39843767879999997" blue="0.64708888529999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31099998950958252" green="0.39800000190734863" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Udacity">
-            <color red="0.29391291739999997" green="0.62701255079999996" blue="0.84709167480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.29399999976158142" green="0.62699997425079346" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -32,4 +32,15 @@ extension UIViewController {
             }
         }
     }
+
+}
+
+extension UIViewController: UITextFieldDelegate {
+    func delegateTexField(_ texField: UITextField, _ controller: UITextFieldDelegate) {
+        texField.delegate = self
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }
